@@ -1,0 +1,285 @@
+{% extends '../layout/layout.swig' %}
+{% block content %}
+    <div class="h130"></div>
+    <div class="wrap">
+        <div class="w1200 clr">
+            {% include '../left/courseLeft.swig' %}
+            {{ courseLeft(category) }}
+            <div class="package">
+                <div class="bread">
+                    当前位置：<a>课程中心 &gt; </a><a>建设类</a>
+                </div>
+                <div class="content">
+                    <p class="tit">请根据本人所属专业序列选择专业课！</p>
+                    <table>
+                        <tr>
+                            <th width="10%">序号</th>
+                            <th width="15%">课程类别</th>
+                            <th width="30%">课程名称</th>
+                            <th width="10%">课程学分</th>
+                            <th width="10%">计入年份</th>
+                            <th width="10%">收费标准</th>
+                            <th width="15%">操作</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>建设类</td>
+                            <td class="left_td"><a href="#" class="td_a">2017年建设类专业课</a></td>
+                            <td>60</td>
+                            <td>2017</td>
+                            <td>320元</td>
+                            <td>
+                                <button class="btn js_btn">购买</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>建设类</td>
+                            <td class="left_td"><a href="#" class="td_a">2017年建设类专业课</a></td>
+                            <td>60</td>
+                            <td>2017</td>
+                            <td>320元</td>
+                            <td>
+                                <button class="btn no">已购买</button>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup popup_choose">
+        <div class="cont" style="height: 500px;">
+            <div class="tit">选课 -- 2018年建设类专业课</div>
+            <div class="popup_con">
+                <div class="top course_top">
+                    <p>课程名称：2018建设类专业课</p>
+                    <p>学分：60</p>
+                    <p>课程性质：必修</p>
+                    <p>考试形式：不考试</p>
+                    <p>收费标准：320元</p>
+                    <button class="button_course">确认选课</button>
+                </div>
+                <div class="end">
+                    <div class="tit">
+                        <a class="on">课程列表</a>
+                        <a>学分组成</a>
+                    </div>
+                    <div class="switch">
+                        <div class="cur">
+                            <table>
+                                <tr>
+                                    <th width="10%">序号</th>
+                                    <th width="90%" class="th">课程名称(含学历转岗)</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="left_td">01-工程与法律概述</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="left_td">02-工程与法律概述</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td class="left_td">03-工程与法律概述</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="cur">
+                            <table>
+                                <tr>
+                                    <th width="10%">序号</th>
+                                    <th width="80%" class="th">标题</th>
+                                    <th width="10%">学分</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="left_td">01-工程与法律概述</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="left_td">02-工程行政许可与监管</td>
+                                    <td>10</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="del"></div>
+        </div>
+    </div>
+
+    <div class="popup popup_course">
+        <div class="cont" style="height: 500px;">
+            <div class="tit">选课缴费</div>
+            <div class="popup_con">
+                <div class="cur">
+                    <table>
+                        <tr>
+                            <th colspan="2" class="title">缴费信息</th>
+                        </tr>
+                    </table>
+                    <table style="border-top:0px;">
+                        <tr>
+                            <td width="15%">登&nbsp;录&nbsp;名</td>
+                            <td width="85%">AZ2018000063</td>
+                        </tr>
+                        <tr>
+                            <td>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</td>
+                            <td>徐XX</td>
+                        </tr>
+                        <tr>
+                            <td>身份证号</td>
+                            <td>340828198202170036</td>
+                        </tr>
+                        <tr>
+                            <td>课程名称</td>
+                            <td>2017建设类专业课 </td>
+                        </tr>
+                        <tr>
+                            <td>应缴金额</td>
+                            <td>320元 </td>
+                        </tr>
+                        <tr>
+                            <td class="way">选择支付<br>方式</td>
+                            <td class="way">
+                                <div class="li">
+                                    <img src="/static/images/zfb.jpg" width="218" height="88">
+                                </div>
+                                <div class="li">
+                                    <img src="/static/images/wx.jpg" width="218" height="88">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="del"></div>
+        </div>
+    </div>
+
+    <div class="popup popup_details">
+        <div class="cont">
+            <div class="tit">通知公告</div>
+            <div class="popup_con">
+                <div class="details">
+                    <div class="top">
+                        <h2>关于开展2016年度宿松县林业系列专业技术人员 继续教育培训的通知</h2>
+                        <div class="explain">
+                            <span>发布时间：2018-03-20</span>
+                            <span>浏览次数：26</span>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">各有关单位：</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">为贯彻落实《安徽省专业技术人员继续教育实施意见》，提高专业技术人员的专业水平和综合素质，根据市人社局《关于转发省人社厅《关于贯彻实施&lt;专业技术人员继续教育规定&gt;的通知》的通知》（宜人社秘〔2016〕124号）文件通知精神，经市、县人社部门备案，我基地定于2016年9月13日开始举办宿松县2016年度林业系列专业技术人员继续教育培训。现将有关事项通知如下：</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">一、培训对象</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">宿松县林业系列专业技术人员。</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">&nbsp;二、培训内容</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">全面深化改革实现文明发展；湿地保护；生态林业；林下产业；互联网+；薄壳山核桃育林技术；海绵城市建设；网络安全</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">三、培训方式及学时登记</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">此次培训班采取专家面授和网络学习相结合模式。结业考试合格后，登记继续教育学时。</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">四、具体事项</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">1、培训时间：2016年9月13日报到，14日—19日面授；网课学习由学员登录“安徽省教育培训网”听课。</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">2、面授地点：孚玉山宾馆三号楼三楼</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">3、培训费用：本次培训收取面授费、网课费、资料费每人共计350元；往返交通费及食宿费用学员自理。</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">4、报名方式：各单位请于2016年9月11日前将汇总的《专业技术人员继续教育报名汇总表》及报名费报到安徽宿松鹏程职业专修学校。</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">5、培训要求:根据人社部《专业技术人员继续教育规定》，专业技术人员每年的继续教育学习时间不得少于90学时，其中公需课30学时，专业课60学时。请各单位按照《规定》要求，为本单位专业技术人员参加培训提供便利；各参训人员须提前安排好自己的工作，学习期间不得请假。</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">6、报名材料：报名时请携带继续教育证书，新办人员需提供身份证复印件及2张二寸蓝底照片。</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">为贯彻落实《安徽省专业技术人员继续教育实施意见》，提高专业技术人员的专业水平和综合素质，根据市人社局《关于转发省人社厅《关于贯彻实施&lt;专</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">宿松县林业系列专业技术人员。</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">7、联系方式：</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">联系地址：民主东路365号宿松鹏程职业专修学校</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">联系电话： 0556-7817550 &nbsp;</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">联 系 人：刘倩15178612015 余谦：18075381550</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">&nbsp;E-Mail ：411033022@qq.com</span>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">在线教育平台：www.ahsjypxw.com(安徽省教育培训网）</span>
+                        </p>
+                        <p>
+                            <br/>
+                        </p>
+                        <p style="line-height: 1.5em;">
+                            <span style="font-size: 14px; color: rgb(89, 89, 89);">二〇一六年八月二十六日</span>
+                        </p>
+                        <p>
+                            <br/>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="del"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $(".tit a").click(function(){
+                var index = $(this).index();
+                $(this).addClass("on").siblings("a").removeClass("on");
+                $(".switch .cur").eq(index).show().siblings(".cur").hide();
+            }).eq(0).trigger('click');
+
+            $(".js_btn").click(function(){
+                popup(".popup_choose");
+            });
+
+            $(".button_course").click(function(){
+                popup(".popup_course");
+            });
+
+            $(".td_a").click(function(){
+                popup(".popup_details");
+            });
+
+        });
+    </script>
+{% endblock %}
