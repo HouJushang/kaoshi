@@ -14,4 +14,9 @@ router.get('/register', async (ctx) => {
 router.get('/agree', async (ctx) => {
     ctx.body = await ctx.render('login/agree')
 })
+router.get('/loginOut', async (ctx) => {
+    ctx.session.userLoginId = ''
+    ctx.session.userLoginName = ''
+    ctx.redirect('/login');
+})
 

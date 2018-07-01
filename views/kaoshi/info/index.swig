@@ -17,22 +17,16 @@
                             <th width="15%">浏览次数</th>
                             <th width="20%">发布时间</th>
                         </tr>
+                        {% for index, item in list %}
                         <tr>
-                            <td>1</td>
+                            <td>{{ index + 1 }}</td>
                             <td class="left_td">
-                                <a href="#" class="td_a">关于开展2016年度宿松县水产系列专业技术人员 继续教育培训的通知</a>
+                                <a href="#" class="td_a">{{ item.title }}</a>
                             </td>
-                            <td>36</td>
-                            <td>2018-5-26  15:30</td>
+                            <td>{{ item.click }}</td>
+                            <td>{{ item.createdAt | date('Y-m-d') }}</td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="left_td">
-                                <a href="#" class="td_a">关于开展2016年度宿松县</a>
-                            </td>
-                            <td>36</td>
-                            <td>2018-5-26  15:30</td>
-                        </tr>
+                        {% endfor %}
                     </table>
 
                 </div>

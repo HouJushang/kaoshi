@@ -63,7 +63,7 @@ body{ overflow-x: hidden; padding:0px; margin:0px auto; background: #f8f8f8; col
 .header .top{ height: 90px; background: url(../images/head_02.jpg) center; }
 .header .top .logo{ line-height: 90px; font-size: 30px; color: #444444; padding-left: 85px; }
 .header .top .operation{ line-height: 16px; padding:37px 0;  }
-.header .top .operation>div{ font-size: 14px; color: #444444; padding: 0 10px 0 12px; cursor: pointer; background: url(../images/dd.jpg) left center no-repeat; }
+.header .top .operation>div{ font-size: 14px; color: #444444; padding: 0 10px 0 12px; cursor: pointer;}
 .header .top .operation>div.name{ background: none; }
 .header .top .operation>div.name span{ color: #f74d1a; }
 .header .top .operation>div a{ color:#444444;  }

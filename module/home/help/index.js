@@ -1,8 +1,9 @@
 const router = require('../../router');
 
 router.get('/help/:category', async (ctx) => {
-    ctx.body = await ctx.render('help/index', {
+    Object.assign(ctx.viewData, {
         topCategory: 'help',
         category: ctx.params.category
     })
+    ctx.body = await ctx.render('help/index', ctx.viewData)
 })

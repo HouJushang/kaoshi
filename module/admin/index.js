@@ -1,5 +1,3 @@
-require('./admin')
-require('./login')
-require('./user')
-require('./websiteUser')
-require('./content')
+require('./course')
+require('./news')
+require('./download')

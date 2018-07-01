@@ -1,8 +1,8 @@
 const router = require('../../router');
 
 router.get('/learn/*', async (ctx, next) => {
-    ctx.viewData = {
+    Object.assign(ctx.viewData, {
         topCategory: 'learn'
-    }
+    })
     await next()
 })

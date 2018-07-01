@@ -1,4 +1,5 @@
 require('./home')
+require('./api')
 require('./login')
 require('./learn/index')
 require('./learn/course')

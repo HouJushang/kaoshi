@@ -22,7 +22,7 @@ app.context.render = co.wrap(render({
     writeBody: false
 }));
 
-app.use(cors({credentials: true, origin: 'http://localhost:8080'}));
+// app.use(cors({credentials: true, origin: 'http://localhost:8080'}));
 
 
 app.keys = ['some secret hurr'];

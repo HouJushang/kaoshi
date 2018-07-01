@@ -7,9 +7,9 @@
 // }
 
 module.exports = {
-    host: '47.75.73.180',
+    host: 'localhost',
     port: '3306',
-    name: 'asdf',
-    password: 'asdf',
-    database: 'asdf',
+    name: 'root',
+    password: 'root',
+    database: 'kaoshi',
 }

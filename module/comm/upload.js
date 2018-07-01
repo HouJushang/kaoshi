@@ -5,7 +5,7 @@ const router = require('../router');
 const fs = require('fs');
 const koaBody = require('koa-body');
 const path = require('path');
-router.post('/upload', koaBody({ multipart: true }), async (ctx) => {
+router.post('/admin/upload', koaBody({ multipart: true }), async (ctx) => {
     try {
         const file = ctx.request.body.files.file;
         const extensionName = file.name.split('.')[1];

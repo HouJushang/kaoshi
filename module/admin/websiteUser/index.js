@@ -1,7 +1,0 @@
-require('./user')
-require('./company')
-require('./person')
-require('./job')
-require('./resume')
-require('./product')
-require('./service')

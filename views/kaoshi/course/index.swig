@@ -7,7 +7,7 @@
             {{ courseLeft(category) }}
             <div class="package">
                 <div class="bread">
-                    当前位置：<a>课程中心 &gt; </a><a>建设类</a>
+                    当前位置：<a>课程中心 &gt; </a><a>{{ category }}</a>
                 </div>
                 <div class="content">
                     <p class="tit">请根据本人所属专业序列选择专业课！</p>
@@ -21,28 +21,19 @@
                             <th width="10%">收费标准</th>
                             <th width="15%">操作</th>
                         </tr>
+                        {% for index, item in list %}
                         <tr>
-                            <td>1</td>
-                            <td>建设类</td>
-                            <td class="left_td"><a href="#" class="td_a">2017年建设类专业课</a></td>
-                            <td>60</td>
-                            <td>2017</td>
-                            <td>320元</td>
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ item.category }}</td>
+                            <td class="left_td">{{ item.name }}</td>
+                            <td>{{ item.rank }}</td>
+                            <td>{{ item.year }}</td>
+                            <td>{{ item.price }}</td>
                             <td>
                                 <button class="btn js_btn">购买</button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>建设类</td>
-                            <td class="left_td"><a href="#" class="td_a">2017年建设类专业课</a></td>
-                            <td>60</td>
-                            <td>2017</td>
-                            <td>320元</td>
-                            <td>
-                                <button class="btn no">已购买</button>
-                            </td>
-                        </tr>
+                        {% endfor %}
                     </table>
 
                 </div>
