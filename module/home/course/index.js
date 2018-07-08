@@ -13,6 +13,5 @@ router.get('/course/:category', async (ctx) => {
         category: ctx.params.category,
         list: result
     })
-    console.log(ctx.viewData)
     ctx.body = await ctx.render('course/index', ctx.viewData)
 })

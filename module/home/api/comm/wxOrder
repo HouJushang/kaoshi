@@ -38,7 +38,7 @@ function getXml(wxDorderData) {
         key = wxConfig.key,
         body = wxDorderData.body,
         nonce_str = uuid(),
-        notify_url = "http://www.baidu.com",
+        notify_url = "http://ks.kailule.com/pay/callback",
         out_trade_no = wxDorderData.out_trade_no,
         total_fee = wxDorderData.total_fee,
         product_id = wxDorderData.product_id,
