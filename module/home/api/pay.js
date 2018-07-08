@@ -45,8 +45,7 @@ router.post('/order', async (ctx) => {
     }
 })
 router.post('/pay/callback', async (ctx) => {
-    console.log('ctxctx', ctx)
-    console.log('reqreq', ctx.req)
+    console.log('ctxctx', ctx.request.body.xml)
     // orderModel.update({status: 1},{
     //     uuid: '1231231'
     // })
