@@ -1,0 +1,85 @@
+const wxConfig = require('./wxConfig');
+const uuid = require('../../../../util/uuid');
+const MD5 = require('md5');
+const xml2js = require('xml2js');
+var rp = require('request-promise');
+
+var formMessage = function (result) {
+    var message = {};
+    if (typeof result === 'object') {
+        var keys = Object.keys(result);
+        for (var i = 0; i < keys.length; i++) {
+            var item = result[keys[i]];
+            var key = keys[i];
+            if (!(item instanceof Array) || item.length === 0) {
+                continue;
+            }
+            if (item.length === 1) {
+                var val = item[0];
+                if (typeof val === 'object') {
+                    message[key] = formMessage(val);
+                } else {
+                    message[key] = (val || '').trim();
+                }
+            } else {
+                message[key] = [];
+                for (var j = 0, k = item.length; j < k; j++) {
+                    message[key].push(formMessage(itemp[j]));
+                }
+            }
+        }
+    }
+    return message;
+}
+
+function getXml(wxDorderData) {
+    const appid = wxConfig.appid,
+        mch_id = wxConfig.mch_id,
+        key = wxConfig.key,
+        body = wxDorderData.body,
+        nonce_str = uuid(),
+        notify_url = "http://www.baidu.com",
+        out_trade_no = wxDorderData.out_trade_no,
+        total_fee = wxDorderData.total_fee,
+        product_id = wxDorderData.product_id,
+        ip = wxDorderData.ip,
+        stringA = `appid=wx03d2979337a9fdc2&body=${body}&mch_id=${mch_id}&nonce_str=${nonce_str}&notify_url=${notify_url}&out_trade_no=${out_trade_no}&product_id=${product_id}&spbill_create_ip=${ip}&total_fee=${total_fee}&trade_type=NATIVE`,
+        stringSignTemp = stringA + "&key=" + key,
+        sign = MD5(stringSignTemp).toUpperCase();
+
+    formData = "<xml>";
+    formData += "<appid>" + appid + "</appid>"; //appid
+    formData += "<body>" + body + "</body>"; //商品或支付单简要描述
+    formData += "<mch_id>" + mch_id + "</mch_id>"; //商户号
+    formData += "<nonce_str>" + nonce_str + "</nonce_str>"; //随机字符串，不长于32位
+    formData += "<notify_url>" + notify_url + "</notify_url>"; //支付成功后微信服务器通过POST请求通知这个地址
+    formData += "<out_trade_no>" + out_trade_no + "</out_trade_no>"; //订单号
+    formData += "<total_fee>" + total_fee + "</total_fee>"; //金额
+    formData += "<spbill_create_ip>" + ip + "</spbill_create_ip>"; //ip
+    formData += "<product_id>" + product_id + "</product_id>"; //ip
+    formData += "<trade_type>NATIVE</trade_type>"; //NATIVE会返回code_url ，JSAPI不会返回
+    formData += "<sign>" + sign + "</sign>";
+    formData += "</xml>";
+
+    return formData;
+}
+
+
+async function wxOrder(wxDorderData) {
+    var result;
+    const orderResult = await rp({
+        url: 'https://api.mch.weixin.qq.com/pay/unifiedorder',
+        method: "POST",
+        body: getXml(wxDorderData)
+    });
+    xml2js.parseString(orderResult, function (err, json) {
+        if (err) {
+            new Error("解析xml报错")
+        } else {
+            result = formMessage(json.xml);
+        }
+    })
+    return result;
+}
+
+module.exports = wxOrder

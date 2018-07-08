@@ -5,4 +5,5 @@ require('./user')
 require('./news')
 require('./download')
 require('./admin')
+require('./order')
 module.exports = sequelize;

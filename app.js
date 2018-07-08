@@ -4,7 +4,8 @@ const router = require('./module/router');
 const session = require('./bin/session')
 
 const config = require('./config/www')
-var bodyParser = require('koa-bodyparser');
+const xmlParser = require('koa-xml-body')
+const bodyParser = require('koa-bodyparser');
 const cors = require('koa2-cors');
 const serve = require('koa-static');
 const co = require('co');
@@ -12,7 +13,7 @@ const path = require('path')
 const render = require('koa-swig');
 require('./util/globalFunction')
 
-
+app.use(xmlParser())
 app.use(serve(path.join(__dirname, '/public')));
 app.context.render = co.wrap(render({
     root: path.join(__dirname, 'views/kaoshi'),
