@@ -8,5 +8,4 @@ const courseItem = sequelize.define('courseItem', {
     time: { type: Sequelize.INTEGER, allowNull: true },
     video: { type: Sequelize.STRING, allowNull: true }
 });
-courseItem.belongsTo(courseModel);
 module.exports = courseItem;

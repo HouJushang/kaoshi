@@ -18,6 +18,7 @@
                             <th width="30%">课程名称</th>
                             <th width="10%">课程学分</th>
                             <th width="10%">计入年份</th>
+
                             <th width="10%">收费标准</th>
                             <th width="15%">操作</th>
                         </tr>
@@ -28,7 +29,7 @@
                             <td class="left_td">{{ item.name }}</td>
                             <td>{{ item.rank }}</td>
                             <td>{{ item.year }}</td>
-                            <td>{{ item.price }}</td>
+                            <td>{{ item.price/100 }}</td>
                             <td>
                                 <button class="btn js_btn" index="{{ index }}">购买</button>
                             </td>
@@ -50,7 +51,7 @@
                     <p>学分：{{ item.rank }}</p>
                     <p>课程性质：必修</p>
                     <p>考试形式：考试</p>
-                    <p>收费标准：{{ item.price }}</p>
+                    <p>收费标准：{{ item.price/100 }}</p>
                     <button index="{{ index }}" class="button_course">确认选课</button>
                 </div>
                 <div class="end">
@@ -128,14 +129,14 @@
                         </tr>
                         <tr>
                             <td>应缴金额</td>
-                            <td>{{ item.price }}元 </td>
+                            <td>{{ item.price/100 }}元 </td>
                         </tr>
                         <tr>
                             <td class="way">选择支付<br>方式</td>
                             <td class="way">
-                                <div class="li" courseId = "{{ item.id }}">
-                                    <img src="/static/images/zfb.jpg" width="218" height="88">
-                                </div>
+                                {#<div class="li" courseId = "{{ item.id }}">#}
+                                    {#<img src="/static/images/zfb.jpg" width="218" height="88">#}
+                                {#</div>#}
                                 <div class="li courseBuyBtn" index="{{ index }}" courseId = "{{ item.id }}">
                                     <img src="/static/images/wx.jpg" width="218" height="88">
                                 </div>
