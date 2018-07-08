@@ -25,14 +25,15 @@ router.post('/order', async (ctx) => {
             ip: '183.160.24.194'
         });
 
-        console.log(orderResult)
-
         if(!(orderResult.return_code == 'SUCCESS' && orderResult.return_msg == 'OK')){
             ctx.body = _errorResponse('微信统一下单失败')
             return
         }
         if(result) {
-            ctx.body = _successResponse('列表获取', result);
+            ctx.body = _successResponse('微信统一下单成功', {
+                orderResult: result,
+                wxOrderResult: orderResult
+            });
             return
         }else {
             ctx.body = _errorResponse('下单失败')
