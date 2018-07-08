@@ -45,8 +45,16 @@ router.post('/order', async (ctx) => {
     }
 })
 router.post('/pay/callback', async (ctx) => {
-    console.log('ctxctx', ctx.request.body.xml)
-    // orderModel.update({status: 1},{
-    //     uuid: '1231231'
-    // })
+    const xmlResult = ctx.request.body.xml
+    const result = await orderModel.update({
+        status: 1
+    },{
+        where: {
+            uuid: xmlResult.out_trade_no[0]
+        }
+    });
+    if(result) {
+        console.log('支付成功过')
+    }
+
 })

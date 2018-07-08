@@ -136,10 +136,14 @@
                                 <div class="li" courseId = "{{ item.id }}">
                                     <img src="/static/images/zfb.jpg" width="218" height="88">
                                 </div>
-                                <div class="li courseBuyBtn" courseId = "{{ item.id }}">
+                                <div class="li courseBuyBtn" index="{{ index }}" courseId = "{{ item.id }}">
                                     <img src="/static/images/wx.jpg" width="218" height="88">
                                 </div>
                             </td>
+                        </tr>
+                        <tr>
+                            <td>扫描二维码</td>
+                            <td id="code" style="padding: 20px"></td>
                         </tr>
                     </table>
                 </div>
@@ -148,6 +152,7 @@
         </div>
     </div>
     {% endfor %}
+    <script type="text/javascript" src="/static/js/jquery.qrcode.min.js"></script>
     <script type="text/javascript">
         $(function(){
             {% for index, item in list %}
@@ -172,6 +177,7 @@
 
             $('.courseBuyBtn').click(function() {
                 // todo 下单
+                var clickIndex = $(this).attr('index')
                 $.ajax({
                     url: "/order",
                     type: "POST",
@@ -181,7 +187,11 @@
                     },
                     success: function (e) {
                         if(e.code == 'success'){
-
+                            $('.popup_course' + clickIndex + ' #code').html('');
+                            $('.popup_course' + clickIndex + ' #code').qrcode(e.data.wxOrderResult.code_url);
+                            setTimeout(function(){
+                                alert('支付二维码生成，扫描支付')
+                            })
                         } else {
                             alert(e.message)
                         }
