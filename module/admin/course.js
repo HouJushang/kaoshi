@@ -22,6 +22,16 @@ router.get('/admin/course/list', async (ctx) => {
         ctx.body = _errorResponse(e.message)
     }
 })
+router.get('/admin/course/alllist', async (ctx) => {
+    try {
+        const result = await courseModel.findAll({
+            order:  [['id', 'DESC']]
+        })
+        ctx.body = _successResponse('列表获取', result);
+    } catch (e) {
+        ctx.body = _errorResponse(e.message)
+    }
+})
 router.delete('/admin/course/del', async (ctx) => {
     try {
         const result = await courseModel.destroy({where: {id: ctx.request.query.id}})

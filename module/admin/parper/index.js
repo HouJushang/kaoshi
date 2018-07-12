@@ -1,5 +1,4 @@
 const router = require('../../router');
-const parperModel = require('../../../model/parper')
 const addParper = require('./addParper')
 router.post('/paper/add', async (ctx) => {
     try {

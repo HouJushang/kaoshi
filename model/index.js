@@ -7,4 +7,5 @@ require('./download')
 require('./admin')
 require('./order')
 require('./parper')
+require('./parperOption')
 module.exports = sequelize;
