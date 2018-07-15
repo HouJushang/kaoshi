@@ -1,5 +1,6 @@
-require('./course')
-require('./news')
+require('./course/index')
+require('./news/index')
 require('./download')
 require('./order')
 require('./parper/index')
+require('./course/index')

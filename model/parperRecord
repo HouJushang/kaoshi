@@ -1,0 +1,14 @@
+const Sequelize = require('sequelize');
+const sequelize = require('../bin/sequelize');
+const parperModel = require('./parper')
+const courseModel = require('./course')
+const userModel = require('./user')
+const parperRecord = sequelize.define('parperRecord', {
+    id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
+    totalRank: {type: Sequelize.STRING},
+    rank: {type: Sequelize.STRING},
+});
+parperRecord.belongsTo(parperModel);
+parperRecord.belongsTo(courseModel);
+parperRecord.belongsTo(userModel);
+module.exports = parperRecord;

@@ -32,7 +32,7 @@
                                 <td>--</td>
                                 <td>
                                     <button class="btn js_btn" index="{{ index }}">学习</button>
-                                    <button class="btn kaoshi">考试</button>
+                                    <button class="btn kaoshi" itemId="{{ item.course.id }}">考试</button>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -140,11 +140,11 @@
             });
 
             $('.kaoshi').click(function () {
-                location.href = '/paper/index'
+                var courseId = $(this).attr('itemId')
+                location.href = '/paper/' + courseId
             })
 
             $('.videoBtn').click(function () {
-
                 window.open('/video/' + encodeURIComponent($(this).attr('vodeoSrc')))
             })
 

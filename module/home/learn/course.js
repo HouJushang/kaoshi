@@ -3,20 +3,22 @@ const orderModel = require('../../../model/order')
 const userModel = require('../../../model/user')
 const courseModel = require('../../../model/course')
 const courseItemModel = require('../../../model/courseItem')
+const parper = require('../../../model/parper')
 
 router.get('/learn/course', async (ctx) => {
 
     const result = await orderModel.findAll({
-        where: { status: 1, userId: ctx.session.userLoginId},
-        order:  [['id', 'DESC']],
+        where: {status: 1, userId: ctx.session.userLoginId},
+        order: [['id', 'DESC']],
         include: [
             {
                 model: userModel
             },
             {
                 model: courseModel
-            }
-        ]
+            },
+          ]
+
     })
     const resultPromise = []
     result.forEach(e => {

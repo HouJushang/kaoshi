@@ -8,4 +8,5 @@ require('./admin')
 require('./order')
 require('./parper')
 require('./parperOption')
+require('./parperRecord')
 module.exports = sequelize;

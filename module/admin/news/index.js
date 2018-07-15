@@ -1,5 +1,6 @@
-const router = require('../router');
-const contentModel = require('../../model/news')
+const router = require('../../router');
+const contentModel = require('../../../model/news')
+const updateNews = require('./updateNews')
 router.post('/admin/news/add', async (ctx) => {
     try {
         const result = await contentModel.create(ctx.request.body)
@@ -28,6 +29,20 @@ router.delete('/admin/news/del', async (ctx) => {
             ctx.body = _successResponse('删除成功', result);
         } else {
             ctx.body = _errorResponse('删除失败');
+        }
+    } catch (e) {
+        ctx.body = _errorResponse(e.message)
+    }
+})
+
+router.post('/admin/news/update', async (ctx) => {
+    try {
+        if(updateNews(ctx.request.body)){
+            ctx.body = _successResponse('success');
+            return
+        } else {
+            ctx.body = _errorResponse('更新失败');
+            return
         }
     } catch (e) {
         ctx.body = _errorResponse(e.message)

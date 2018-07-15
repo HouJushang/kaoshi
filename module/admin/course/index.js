@@ -1,6 +1,8 @@
-const router = require('../router');
-const courseModel = require('../../model/course')
-const courseItemModel = require('../../model/courseItem')
+const router = require('../../router');
+const courseModel = require('../../../model/course')
+const courseItemModel = require('../../../model/courseItem')
+const updateCoures = require('./updateCoures')
+const updateCouresItem = require('./updateCouresItem')
 router.post('/admin/course/add', async (ctx) => {
     try {
         const result = await courseModel.create(ctx.request.body)
@@ -44,6 +46,19 @@ router.delete('/admin/course/del', async (ctx) => {
         ctx.body = _errorResponse(e.message)
     }
 })
+router.post('/admin/course/update', async (ctx) => {
+    try {
+        if(updateCoures(ctx.request.body)){
+            ctx.body = _successResponse('success');
+            return
+        } else {
+            ctx.body = _errorResponse('更新失败');
+            return
+        }
+    } catch (e) {
+        ctx.body = _errorResponse(e.message)
+    }
+})
 router.post('/admin/courseItem/add', async (ctx) => {
     try {
         const result = await courseItemModel.create(ctx.request.body)
@@ -69,6 +84,19 @@ router.delete('/admin/courseItem/del', async (ctx) => {
             ctx.body = _successResponse('删除成功', result);
         } else {
             ctx.body = _errorResponse('删除失败');
+        }
+    } catch (e) {
+        ctx.body = _errorResponse(e.message)
+    }
+})
+router.post('/admin/courseItem/update', async (ctx) => {
+    try {
+        if(updateCouresItem(ctx.request.body)){
+            ctx.body = _successResponse('success');
+            return
+        } else {
+            ctx.body = _errorResponse('更新失败');
+            return
         }
     } catch (e) {
         ctx.body = _errorResponse(e.message)

@@ -1,6 +1,8 @@
 const router = require('../../router');
 const addParper = require('./addParper')
 const addOption = require('./addOption')
+const updateOption = require('./updateOption')
+const updateParper = require('./updateParper')
 const parperQuery = require('./query')
 const parperModel = require('../../../model/parper')
 const parperOption = require('../../../model/parperOption')
@@ -16,6 +18,20 @@ router.post('/admin/parper/add', async (ctx) => {
             return
         } else {
             ctx.body = _errorResponse('添加失败');
+            return
+        }
+    } catch (e) {
+        ctx.body = _errorResponse(e.message)
+    }
+})
+
+router.post('/admin/parper/update', async (ctx) => {
+    try {
+        if(updateParper(ctx.request.body)){
+            ctx.body = _successResponse('success');
+            return
+        } else {
+            ctx.body = _errorResponse('更新失败');
             return
         }
     } catch (e) {
@@ -44,9 +60,10 @@ router.delete('/admin/parper/del', async (ctx) => {
         ctx.body = _errorResponse(e.message)
     }
 })
-router.get('/admin/option/list', async (ctx) => {
+router.post('/admin/option/list', async (ctx) => {
     try {
-        parperQuery.optionList(ctx.request.query.pageInfo, ctx.request.query.where)
+        const result = await parperQuery.optionList(ctx.request.body.pageInfo, ctx.request.body.where)
+        ctx.body = _successResponse('列表获取', result);
     } catch (e) {
         ctx.body = _errorResponse(e.message)
     }
@@ -58,6 +75,19 @@ router.post('/admin/option/add', async (ctx) => {
             return
         } else {
             ctx.body = _errorResponse('添加失败');
+            return
+        }
+    } catch (e) {
+        ctx.body = _errorResponse(e.message)
+    }
+})
+router.post('/admin/option/update', async (ctx) => {
+    try {
+        if(updateOption(ctx.request.body)){
+            ctx.body = _successResponse('success');
+            return
+        } else {
+            ctx.body = _errorResponse('更新失败');
             return
         }
     } catch (e) {

@@ -228,7 +228,9 @@ table button.blue{ background: #26a1ef; }
 .paper_list .list .tit_list{ line-height: 26px; padding: 8px 0; padding-left: 10px; cursor: pointer;  }
 .paper_list .list .tit_list i{ width: 26px; height: 26px; border-radius: 100%; background: #eeeeee; color: #333333; font-size: 14px; line-height: 26px; display: block; text-align: center; }
 .paper_list .list .tit_list p{ overflow: hidden; padding-left: 10px; font-size: 14px; color: #333333; }
-.paper_list .list .tit_list.on i{ background: #f89e57; }
+
+.tit_list label input{position: fixed; top: -999px;}
+.tit_list label input:checked + i{background: #f89e57 !important;}
 
 .wrap .hand{ overflow: hidden; padding-left: 12px;}
 .wrap .hand .title{ line-height: 65px; background: #fff; font-size: 15px; color: #666666; text-align: center; border-bottom: #cccccc 1px solid; }
